@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+* {
+  font-family: "Poppins";
+}
+button {
+  border-radius: 6px;
+}
+.calculator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.calculator-body {
+  background-color: #2a406f;
+  width: 20vw;
+  height: 52vh;
+  border-radius: 8px;
+  padding: 10px;
+}
+.display {
+  margin: 10px 2px;
+}
+input[type="text"] {
+  width: 260px;
+  height: 75px;
+  border: 1px solid rgba(0, 0, 0, 0.151);
+  border-color: rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0);
+  font-size: 40px;
+  color: white;
+}
+.keypad {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px;
+}
+.clear-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+#clear-all {
+  padding: 8px 40px;
+}
+#backspace {
+  padding: 8px 21px;
+  font-size: 17px;
+}
+.the-numbers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  grid-auto-rows: minmax(45px, auto);
+}
+.number-button {
+  padding: 0px 25px;
+  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0.706);
+  border-color: rgba(0, 0, 0, 0.069);
+  color: white;
+}
+.the-operators {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+}
+.the-operators button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  padding: 10px 17px;
+  margin-top: 1px;
+  margin-bottom: 5px;
+  background-color: rgba(0, 0, 0, 0.501);
+  border-color: rgba(0, 0, 0, 0.104);
+  color: rgb(233, 233, 233);
+}
+.special-button {
+  background-color: #00819780;
+  border-color: rgba(0, 0, 0, 0.151);
+  color: rgba(255, 255, 255, 0.768);
+}
+.one {
+  display: flex;
+}
