@@ -11,23 +11,28 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function Keypad() {
-  const [output, setOutput] = useState([0]);
+  const [output, setOutput] = useState([]);
 
   function clear() {
-    setOutput([0]);
+    setOutput([]);
   }
   function backspace() {
     setOutput((prev) => [...prev].slice(0, -1));
   }
 
-  function handleOperation(event) {
-    setOutput((prev) => [...prev, event.target.name]);
+  function handleOperation(e, op) {
+    e.preventDefault();
+    setOutput([...output, op]);
   }
 
   function handleClick(num) {
     setOutput((prev) => [...prev, num]);
   }
-  function calculate() {}
+  function calculate(e) {
+    e.preventDefault();
+    const result = eval(output.join(""));
+    setOutput([result]);
+  }
 
   const numbers = [7, 8, 9, 4, 5, 6, 1, 2, 3];
 
@@ -45,7 +50,7 @@ export default function Keypad() {
           <input
             disabled
             type="text"
-            value={+output.join("")}
+            value={output.join("")}
             readOnly={true}
             style={{ textAlign: "right" }}
           />
@@ -91,10 +96,10 @@ export default function Keypad() {
           </div>
 
           <div className="the-operators">
-            <button onClick={handleOperation}>{divider}</button>
-            <button onClick={handleOperation}>{multiplier}</button>
-            <button onClick={handleOperation}>{subtracter}</button>
-            <button onClick={handleOperation}>{adder}</button>
+            <button onClick={e => handleOperation(e, '/')}>{divider}</button>
+            <button onClick={e => handleOperation(e, '*')}>{multiplier}</button>
+            <button onClick={e => handleOperation(e, '-')}>{subtracter}</button>
+            <button onClick={e => handleOperation(e, '+')}>{adder}</button>
             <button
               onClick={() => {
                 console.log(typeof +output.join(""));
